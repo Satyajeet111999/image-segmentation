@@ -1,0 +1,6 @@
+ultralytics
+pdfplumber
+PyMuPDF
+Pillow
+numpy
+pytesseract

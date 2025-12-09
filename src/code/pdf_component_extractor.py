@@ -6,7 +6,6 @@ from typing import Any, Dict, List
 
 import fitz  # PyMuPDF
 import numpy as np
-import pdfplumber
 from PIL import Image
 from ultralytics import YOLO
 
@@ -78,13 +77,12 @@ class PdfComponentExtractor:
 
         self._model = YOLO(str(self.config.model_path))
 
-    def _open_documents(self) -> tuple[fitz.Document, pdfplumber.PDF]:
+    def _open_documents(self) -> fitz.Document:
         """
-        Open the same PDF via PyMuPDF (for rendering) and pdfplumber (for text).
+        Open the same PDF via PyMuPDF (for rendering).
         """
         fitz_doc = fitz.open(self.config.pdf_path)
-        plumber_pdf = pdfplumber.open(self.config.pdf_path)
-        return fitz_doc, plumber_pdf
+        return fitz_doc
 
     def _render_page_to_image(self, doc: fitz.Document, page_index: int) -> fitz.Page:
         """
@@ -202,7 +200,7 @@ class PdfComponentExtractor:
         list of DetectedComponent
             All detected components with extracted text (where available).
         """
-        fitz_doc, plumber_pdf = self._open_documents()
+        fitz_doc = self._open_documents()
 
         all_components: List[DetectedComponent] = []
 
@@ -235,7 +233,6 @@ class PdfComponentExtractor:
 
         finally:
             fitz_doc.close()
-            plumber_pdf.close()
 
         # Save components to JSON for downstream use
         self._save_components_json(all_components)

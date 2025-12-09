@@ -22,14 +22,18 @@ Create a virtual environment (recommended) and install dependencies:
 python -m venv .venv
 source .venv/bin/activate      # Windows: .venv/Scripts/activate
 pip install -r requirements.txt
+```bash
 
-2. Pytesseract Installation
+--- 
+
+## 2. Pytesseract Installation
  Download from: https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe
  install it and add the path to system environment variables
 
 3. Run Application
+```bash
 python src/code/main.py 
   --pdf <pdf_path>
   --model  <src/code/model/yolov11l-doclaynet.pt>
   --output outputs
-
+```bash

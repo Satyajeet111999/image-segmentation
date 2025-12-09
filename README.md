@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ## 2. Pytesseract Installation
  1. Download from: https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe
- 2. install it and add the path to system environment variables
+ 2. Install it and add the path to system environment variables
 
 ## 3. Run Application
 ```bash

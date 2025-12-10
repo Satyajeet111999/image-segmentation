@@ -37,3 +37,12 @@ python src/code/main.py
   --model  <src/code/model/yolov11l-doclaynet.pt>
   --output outputs
 ```
+
+## 4. Output
+You can find the output of this task in /outputs directory where we have the segmented images and there is components.json which contain all the text segments and metadata like captions of image segments, page number, bounding boxes, etc.
+
+## Conclusion:
+1. Successfully retrieved the images along with its caption
+2. Successfully retrieved the ADA algorithm in parts. To get one single image out for the algorithm, we can do the following:
+  1. Fine tune a yolo model to train it to detect algorithms.
+  2. Implement logic to identify smaller individual image segments of the algorithm and stitch them back to get the entire image.
